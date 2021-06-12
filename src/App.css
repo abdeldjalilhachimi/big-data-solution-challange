@@ -1,4 +1,6 @@
-.leaflet-container {
-  width: 100vw;
-  height: 100vh;
+.app {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+  content-visibility: auto;
 }
