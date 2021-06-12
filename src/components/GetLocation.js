@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const GetLocation = () => {
   const [state, setState] = useState({
     longitude: 0,
     latitude: 0,
@@ -46,4 +46,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default GetLocation;

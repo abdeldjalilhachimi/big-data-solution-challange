@@ -12,6 +12,7 @@ function App() {
   const [temp, setTemp] = useState(); */
   const [isNotEmpty, setIsNotEmpty] = useState(false);
   const [weatherData, setWeatherData] = useState();
+  const [current, setCurrent] = useState();
   const getWeatherData = (lat, lng) => {
     if (lat && lng) {
       fetch(
@@ -21,6 +22,7 @@ function App() {
           let data = await res.json();
           console.log("data:", data["daily"]);
           setWeatherData(data);
+          setCurrent(data["current"]);
           /*         data.daily.map((value, index) => {
           if (index > 0) {
             setDay(
@@ -53,7 +55,7 @@ function App() {
   return (
     <div className="app">
       <WeatherLayout addInfo={addInfo} />
-      <Leaflet lat={lat} lng={lng} />
+      <Leaflet lat={lat} lng={lng} current={current} />
       {isNotEmpty ? <WeatherInfo weatherInfo={weatherData} /> : null}
     </div>
   );

@@ -2,3 +2,10 @@
   width: 100%;
   height: 50vh !important;
 }
+
+.weather-mood {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

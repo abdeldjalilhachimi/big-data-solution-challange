@@ -3,12 +3,19 @@ import "./weatherinfo.css";
 function WeatherInfo({ weatherInfo }) {
   const data = weatherInfo;
   const [info, setInfo] = useState();
+  const [hide, setHide] = useState("block");
+  const handelClick = () => {
+    setHide("none");
+  };
   useEffect(() => {
     console.log("weather info:", data);
     setInfo(data);
   }, [data]);
   return (
-    <div className="weather-info">
+    <div className="weather-info" style={{ display: hide }}>
+      <span className="close" onClick={handelClick}>
+        x
+      </span>
       <div className="weather-card">
         {info &&
           info["daily"].map((item, index) => {

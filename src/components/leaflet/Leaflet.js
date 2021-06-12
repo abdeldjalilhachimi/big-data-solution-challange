@@ -3,8 +3,18 @@ import { Map, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import L, { map } from "leaflet";
 import { VenueLocationIcon } from "../VenueLocationIcon";
 import "./leaflet.css";
-const Leaflet = ({ lat, lng }) => {
+const Leaflet = ({ lat, lng, current }) => {
+  console.log("current from leaflet : ", current);
+
+  const data = current;
+  const [info, setInfo] = useState();
+  useEffect(() => {
+    console.log("current leaflet:", data);
+    setInfo(data);
+  }, [data]);
   const position = [lat, lng];
+
+  console.log("cur:", info && info.temp.toFixed(0).toString().slice(0, 2));
 
   return (
     <div id="leafltmap">
@@ -16,9 +26,30 @@ const Leaflet = ({ lat, lng }) => {
 
         <Marker position={position} icon={VenueLocationIcon}>
           <Popup>
-            Hello <br /> I am good
+            <div>
+              <div className="weather-mood">
+                {
+                  <h3>
+                    {new Date(info && info.dt * 1000).toLocaleDateString("en", {
+                      weekday: "long",
+                    })}
+                  </h3>
+                }
+
+                <img
+                  src={`${process.env.REACT_APP_IMAGE_URL}${
+                    info && info.weather[0].icon
+                  }.png`}
+                />
+                <small> {info && info.weather[0].description} </small>
+                <b>
+                  {" "}
+                  {info && info.temp.toFixed(0).toString().slice(0, 2)}
+                  <sup>°C</sup>{" "}
+                </b>
+              </div>
+            </div>
           </Popup>
-          <Tooltip>I am here</Tooltip>
         </Marker>
       </Map>
     </div>
