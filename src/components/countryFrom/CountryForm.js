@@ -15,6 +15,7 @@ const CountryForm = ({ addCountryInfo }) => {
           <input
             required
             type="text"
+            autoComplete="true"
             placeholder="Type your country"
             onChange={(e) => {
               let name = e.target.value.toLocaleLowerCase();

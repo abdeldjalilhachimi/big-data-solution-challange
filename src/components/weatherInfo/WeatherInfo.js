@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./weatherinfo.css";
-function WeatherInfo({ weatherInfo, countryInfo }) {
+function WeatherInfo({ weatherInfo }) {
   const data = weatherInfo;
-  const countryData = countryInfo;
+
   const [info, setInfo] = useState();
   const [hide, setHide] = useState("block");
   const handelClick = () => {
     setHide("none");
   };
   useEffect(() => {
-    console.log("Info ****", countryData);
-    console.log("weather info:", data);
     setInfo(data);
   }, [data]);
   return (
@@ -21,7 +19,6 @@ function WeatherInfo({ weatherInfo, countryInfo }) {
       <div className="weather-card">
         {info &&
           info["daily"].map((item, index) => {
-            console.log("item:", item);
             return index > 0 ? (
               <div className="forecast-day" key={index}>
                 <h5>

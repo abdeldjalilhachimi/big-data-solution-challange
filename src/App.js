@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import CountryForm from "./components/countryFrom/CountryForm";
 import Leaflet from "./components/leaflet/Leaflet";
@@ -12,7 +12,10 @@ function App() {
   const [isNotEmpty, setIsNotEmpty] = useState(false);
   const [loading, setLoading] = useState(null);
   const [countryInfo, setCountryInfo] = useState();
-  const [counryLatLng, setCountryLatLng] = useState([36.7525, 3.04197]);
+  const [counryLatLng, setCountryLatLng] = useState({
+    lat: 36.7525,
+    lon: 3.04197,
+  });
   const [weatherData, setWeatherData] = useState();
   const [current, setCurrent] = useState();
   const [hideCordsFrom, setHideCordsFrom] = useState(false);
@@ -24,7 +27,6 @@ function App() {
     )
       .then(async (res) => {
         const data = await res.json();
-        console.log("Country :", data);
         setCountryInfo(data);
         setCountryLatLng(data["coord"]);
       })
@@ -77,6 +79,7 @@ function App() {
       clearTimeout(timer);
     };
   };
+
   return (
     /* addInfo || countryInfo */
     <div className="app">
