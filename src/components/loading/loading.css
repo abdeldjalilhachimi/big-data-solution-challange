@@ -1,0 +1,16 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 1000;
+  width: 100%;
+  background-color: rgba(41, 51, 155, 0.5);
+}
+.loading h1 {
+  color: white;
+  text-align: center;
+}

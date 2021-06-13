@@ -1,0 +1,55 @@
+.country-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #74a4bc;
+  color: white;
+  padding: 10px;
+  height: 50vh;
+}
+.country-info h1 {
+  margin: 10px;
+  width: 290px;
+  background-color: #4654ec;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+#form-country {
+  background-color: #29339b;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#form-country .input-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center !important;
+  align-items: center;
+  width: 350px !important;
+  margin: 10px 0 10px;
+}
+#form-country .input-group input {
+  padding: 8px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+#form-country input[type="submit"] {
+  padding: 10px;
+  background-color: #ff3a20;
+  color: white;
+  border: none;
+  width: 150px;
+  border-radius: 5px;
+  cursor: pointer;
+}

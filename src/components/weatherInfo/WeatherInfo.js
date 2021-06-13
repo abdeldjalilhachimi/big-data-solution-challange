@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./weatherinfo.css";
-function WeatherInfo({ weatherInfo }) {
+function WeatherInfo({ weatherInfo, countryInfo }) {
   const data = weatherInfo;
+  const countryData = countryInfo;
   const [info, setInfo] = useState();
   const [hide, setHide] = useState("block");
   const handelClick = () => {
     setHide("none");
   };
   useEffect(() => {
+    console.log("Info ****", countryData);
     console.log("weather info:", data);
     setInfo(data);
   }, [data]);
@@ -42,15 +44,6 @@ function WeatherInfo({ weatherInfo }) {
               </div>
             ) : null;
           })}
-        {/*         {state.daily.map((value, index) =>
-          index > 0 ? (
-            <h3>
-              {new Date(value.dt * 1000).toLocaleDateString("en", {
-                weekday: "long",
-              })}{" "}
-            </h3>
-          ) : null
-        )} */}
       </div>
     </div>
   );

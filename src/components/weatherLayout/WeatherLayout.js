@@ -11,14 +11,12 @@ const WeatherLayout = ({ addInfo }) => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-
     addInfo([lat, lng]);
-    console.log("data:", lat, lng);
   };
   return (
     <div className="container">
       <div className="user-info">
-        <h1>Weather Forecast </h1>
+        {/*    <h1>Weather Forecast </h1> */}
         <form id="form" onSubmit={handelSubmit}>
           <div className="input-group">
             <label> Add Lat</label>
